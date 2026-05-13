@@ -13,11 +13,14 @@ import {
   BadgeDollarSign,
   MessageCircle,
   Gem,
+  Menu,
+  X,
 } from "lucide-react";
 
 export default function App() {
 
   const [showTopBar, setShowTopBar] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -149,11 +152,31 @@ export default function App() {
               <img src="/logo-full.png" alt="Diamond Z Digital" className="brand-logo" />
             </a>
 
+            <button
+                className="mobile-menu-button"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded={mobileMenuOpen}
+                onClick={() => setMobileMenuOpen((open) => !open)}
+            >
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+
             <nav className="nav-links" aria-label="Main navigation">
               <a href="#services">Services</a>
               <a href="#pricing">Pricing</a>
               <a href="#care">Care Plans</a>
               <a href="#contact">Contact</a>
+            </nav>
+
+            <nav
+                className={`mobile-nav ${mobileMenuOpen ? "mobile-nav-open" : ""}`}
+                aria-label="Mobile navigation"
+            >
+              <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
+              <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</a>
+              <a href="#care" onClick={() => setMobileMenuOpen(false)}>Care Plans</a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
             </nav>
           </header>
 
@@ -1032,82 +1055,164 @@ const css = `
       padding-left: 0;
     }
   }
+  
+  .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.mobile-menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--blue);
+  border-radius: 14px;
+  background: white;
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: none;
+}
 
   @media (max-width: 700px) {
-    .top-bar {
-      justify-content: center;
-    }
-
-    .brand-logo {
-      width: min(300px, 90vw);
-    }
-
-    .hero-section {
-      padding-top: 34px;
-    }
-
-    .hero-actions {
-      flex-direction: column;
-    }
-
-    .mock-icons {
-      grid-template-columns: 1fr;
-    }
-
-    .service-row,
-    .pricing-row {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-
-    .circle-icon,
-    .price-icon {
-      margin: 0 auto;
-    }
-
-    .price-value {
-      min-width: 0;
-      text-align: center;
-    }
-
-    .section-tab,
-    .why-title {
-      min-width: 0;
-      width: calc(100% - 40px);
-      font-size: 24px;
-    }
-
-    .why-items {
-      grid-template-columns: 1fr;
-    }
-
-    .why-item {
-      border-right: 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .why-item:last-child {
-      border-bottom: 0;
-    }
-
-    .diamond-line {
-      display: none;
-    }
-
-    .blue-callout {
-      flex-direction: column;
-    }
-
-    .footer-brand,
-    .footer-link {
-      flex-direction: column;
-      text-align: center;
-      justify-content: center;
-    }
-
-    .footer-link {
-      word-break: break-word;
-    }
+  .top-bar {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: none;
+    border-radius: 0;
+    min-height: 78px;
+    padding: 10px 18px;
+    justify-content: space-between;
   }
+
+  .top-bar-visible,
+  .top-bar-hidden {
+    transform: none;
+    opacity: 1;
+  }
+
+  .brand-logo {
+    height: 58px;
+    width: auto;
+    max-width: 230px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: grid;
+    gap: 0;
+    background: white;
+    border-bottom: 1px solid #dbe3ef;
+    box-shadow: 0 18px 28px rgba(15, 23, 42, 0.12);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .mobile-nav-open {
+    max-height: 280px;
+  }
+
+  .mobile-nav a {
+    padding: 18px 24px;
+    color: var(--navy);
+    font-weight: 900;
+    border-top: 1px solid #edf2f7;
+  }
+
+  .mobile-nav a:hover {
+    background: var(--light-blue);
+    color: var(--blue);
+  }
+
+  .hero-section {
+    padding-top: 115px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .mock-icons {
+    grid-template-columns: 1fr;
+  }
+
+  .service-row,
+  .pricing-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .circle-icon,
+  .price-icon {
+    margin: 0 auto;
+  }
+
+  .price-value {
+    min-width: 0;
+    text-align: center;
+  }
+
+  .section-tab,
+  .why-title {
+    min-width: 0;
+    width: calc(100% - 40px);
+    font-size: 24px;
+  }
+
+  .why-items {
+    grid-template-columns: 1fr;
+  }
+
+  .why-item {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .why-item:last-child {
+    border-bottom: 0;
+  }
+
+  .diamond-line {
+    display: none;
+  }
+
+  .blue-callout {
+    flex-direction: column;
+  }
+
+  .footer-brand,
+  .footer-link {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .footer-link {
+    word-break: break-word;
+  }
+}
+  
 `;
 
