@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Monitor,
   Wrench,
@@ -16,6 +16,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
 
@@ -327,6 +328,7 @@ export default function App() {
             </a>
           </footer>
         </main>
+        <Analytics />
       </>
   );
 }
