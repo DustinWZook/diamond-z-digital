@@ -47,11 +47,6 @@ export default function App() {
       text: "Need new photos, updated hours, better layout, or a contact form? I can help.",
     },
     {
-      icon: MapPin,
-      title: "Google Business Profile Help",
-      text: "Get your business easier to find on Google with setup, updates, photos, and basic optimization.",
-    },
-    {
       icon: Rocket,
       title: "Landing Pages",
       text: "Perfect for promoting one service, event, product, or special offer.",
@@ -72,13 +67,6 @@ export default function App() {
       text: "Up to 3 small updates such as text changes, photo swaps, hours/contact info updates, or broken link fixes.",
     },
     {
-      icon: MapPin,
-      title: "Google Business Setup/Update",
-      price: "$100",
-      note: "Starting at",
-      text: "Setup or refresh your Google Business Profile with business info, hours, service details, and photos.",
-    },
-    {
       icon: Monitor,
       title: "One-Page Website",
       price: "$300",
@@ -87,10 +75,17 @@ export default function App() {
     },
     {
       icon: Monitor,
-      title: "Full Small Business Website",
+      title: "Full One-Page Business Website",
+      price: "$750",
+      note: "Starting at",
+      text: "A more built-out one-page business website with additional sections, stronger layout, and more polished design.",
+    },
+    {
+      icon: CheckCircle,
+      title: "Add-ons & Multi-Page Sites",
       price: "Custom Quote",
       note: "Available",
-      text: "A larger website tailored to your business with multiple sections or pages and a more complete online presence.",
+      text: "Forms, extra pages, SEO, updates, and more available as add-ons or custom projects.",
     },
   ];
 
@@ -104,7 +99,7 @@ export default function App() {
         "Monthly website checkup",
         "Basic backup check",
         "Contact form test",
-        "Up to 1 small update per month",
+        "Up to 1 small website change per month",
       ],
     },
     {
@@ -115,21 +110,21 @@ export default function App() {
         "Hosting management",
         "Monthly backups",
         "Security/plugin updates, if needed",
-        "Contact form testing",
         "Basic SEO check",
-        "Up to 3 small updates per month",
+        "Contact form test",
+        "Up to 3 small website changes per month",
       ],
     },
     {
       name: "Premium Care",
       price: "$149",
-      subtitle: "Best for businesses that need more frequent help.",
+      subtitle: "Best for active or growing businesses.",
       items: [
         "Everything in Standard",
-        "Google Business Profile updates",
-        "More website changes",
+        "Up to 5 small website changes per month",
         "Priority support",
-        "Monthly improvement suggestions",
+        "Monthly website improvement suggestions",
+        "Seasonal promotion update",
       ],
     },
   ];
