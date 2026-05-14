@@ -39,22 +39,27 @@ export default function App() {
     {
       icon: Monitor,
       title: "Website Design",
-      text: "Clean, mobile-friendly websites for small businesses, side hustles, and local services.",
+      text: "Starter one-page websites and full one-page business websites for small businesses, side hustles, and local services.",
     },
     {
       icon: Wrench,
       title: "Website Updates & Fixes",
-      text: "Need new photos, updated hours, better layout, or a contact form? I can help.",
+      text: "Text changes, photo swaps, broken links, contact info, buttons, and small layout fixes.",
     },
     {
       icon: Rocket,
       title: "Landing Pages",
-      text: "Perfect for promoting one service, event, product, or special offer.",
+      text: "Simple pages for services, specials, events, promotions, or a clear call to action.",
     },
     {
       icon: BarChart3,
       title: "Basic SEO Setup",
       text: "Help your website show up better with improved titles, descriptions, keywords, and local search basics.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Website Care & Maintenance",
+      text: "Hosting management, backups, contact form checks, security/plugin updates if needed, and monthly website changes.",
     },
   ];
 
@@ -85,7 +90,7 @@ export default function App() {
       title: "Add-ons & Multi-Page Sites",
       price: "Custom Quote",
       note: "Available",
-      text: "Forms, extra pages, SEO, updates, and more available as add-ons or custom projects.",
+      text: "Forms, extra pages, SEO, updates, and larger websites available as add-ons or custom projects.",
     },
   ];
 
